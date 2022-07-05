@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:advent_of_dart/src/reader.dart';
 
@@ -11,7 +10,7 @@ class Day01 {
       sink.add(fold(value));
     });
 
-    final result = await Reader().readInput<int>(input, transformer);
+    final result = await Reader().readInput<int>(input, transformer).toList();
 
     return result.first;
   }
@@ -22,7 +21,7 @@ class Day01 {
       sink.add(findPosition(value));
     });
 
-    final result = await Reader().readInput<int>(input, transformer);
+    final result = await Reader().readInput<int>(input, transformer).toList();
 
     return result.first;
   }
