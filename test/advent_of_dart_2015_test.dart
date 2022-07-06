@@ -79,5 +79,22 @@ void main() {
       final example1Key = 'iwrupvqb';
       expect(day04.part1(example1Key, 6), equals(9958218));
     });
+  }, tags: 'slow');
+  group('Day 05', () {
+    final input = './test/2015/day_05_input.txt';
+    final day05 = Day05();
+
+    test('example', () {
+      expect(day05.isNice('ugknbfddgicrmopn'), equals(true));
+      expect(day05.isNice('aaa'), equals(true));
+      expect(day05.isNice('jchzalrnumimnmhp'), equals(false));
+      expect(day05.isNice('haegwjzuvuyypxyu'), equals(false));
+      expect(day05.isNice('dvszwmarrgswjxmb'), equals(false));
+      expect(day05.isNice('urrvucyrzzzooxhx'), equals(true));
+    });
+
+    test('part 1', () {
+      expect(day05.part1(input), completion(equals(238)));
+    });
   });
 }
