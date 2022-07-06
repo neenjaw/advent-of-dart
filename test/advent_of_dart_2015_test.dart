@@ -96,5 +96,16 @@ void main() {
     test('part 1', () {
       expect(day05.part1(input), completion(equals(238)));
     });
+
+    test('isReallyNice', () {
+      expect(day05.isReallyNice('qjhvhtzxzqqjkmpb'), equals(true));
+      expect(day05.isReallyNice('xxyxx'), equals(true));
+      expect(day05.isReallyNice('uurcxstgmygtbstg'), equals(false));
+      expect(day05.isReallyNice('ieodomkazucvgmuy'), equals(false));
+    });
+
+    test('part 1', () {
+      expect(day05.part2(input), completion(equals(69)));
+    });
   });
 }

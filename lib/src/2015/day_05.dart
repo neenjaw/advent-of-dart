@@ -16,6 +16,17 @@ class Day05 {
     return count;
   }
 
+  Future<int> part2(String input) async {
+    final lines = await Reader().readInput(input, LineSplitter()).toList();
+    var count = 0;
+    for (var line in lines) {
+      if (isReallyNice(line)) {
+        count += 1;
+      }
+    }
+    return count;
+  }
+
   bool isNice(String word) {
     final chars = word.characters;
 
@@ -54,6 +65,14 @@ class Day05 {
       prev = char;
     }
     return false;
+  }
+
+  bool isReallyNice(String line) {
+    final pairSeparatedByOneLetter = RegExp(r'(\w)\w\1');
+    final recurringPair = RegExp(r'(\w\w).*\1');
+
+    return pairSeparatedByOneLetter.hasMatch(line) &&
+        recurringPair.hasMatch(line);
   }
 }
 
